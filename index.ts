@@ -3,11 +3,14 @@ import dotenv from 'dotenv';
 import axios from 'axios';
 import { writeFile } from 'fs';
 import TOKENS from './data.json';
+const cors = require('cors');
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT;
+
+app.use(cors());
 
 type CoinInfo = {
   chainId: number;

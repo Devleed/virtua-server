@@ -17,9 +17,11 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const axios_1 = __importDefault(require("axios"));
 const fs_1 = require("fs");
 const data_json_1 = __importDefault(require("./data.json"));
+const cors = require('cors');
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
+app.use(cors());
 function githubTokens() {
     return __awaiter(this, void 0, void 0, function* () {
         const url = `https://api.github.com/repos/Uniswap/extended-token-list/contents/src/tokens/mainnet.json`;
